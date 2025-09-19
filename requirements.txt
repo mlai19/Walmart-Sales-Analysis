@@ -1,0 +1,52 @@
+# Core Analysis
+pandas
+# Databases
+pymysql
+sqlalchemy
+psycopg2
+
+# Kaggle CGI 
+Kaggle
+
+1) Create & activate a virtual environment (macOS)
+# from your project folder
+python3 -m venv my_env1
+source my_env1/bin/activate
+
+# upgrade pip
+python3 -m pip install --upgrade pip
+
+
+2) Install project requirements
+python3 -m pip install -r requirements.txt
+
+
+3) Kaggle API setup 
+# Creating a custom folder for kaggle.json file
+mkdir -p ~/kaggle && mv ~/Downloads/kaggle.json ~/kaggle/ && chmod 600 ~/kaggle/kaggle.json
+echo 'export KAGGLE_CONFIG_DIR="$HOME/kaggle"' >> ~/.zshrc
+source ~/.zshrc
+
+Sanity checks
+which kaggle            # should point to your venv bin
+kaggle --version
+
+4) Download datasets with Kaggle
+
+# Downloads to current directory
+kaggle datasets download -d naji0123/walmart-10k-sales-datasets -p .
+
+# Unzip the dataset
+unzip dataset-name.zip 
+
+5) Install Required Libraries
+
+# Install the necessary Python libraries
+pip install pandas numpy matplotlib seaborn scikit-learn
+
+
+Summary of Commands
+- Environment Setup: Create and activate a virtualenv (macOS: python3 -m venv my_env1)
+- Kaggle API Setup: Generate API token and place kaggle.json in ~/.kaggle (or set KAGGLE_CONFIG_DIR) and run chmod 600
+- Download Datasets: Use kaggle datasets download -d <owner/slug> -p data and unzip (unzip archive.zip -d data)
+- Install Libraries: Run pip install to install necessary libraris
