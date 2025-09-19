@@ -48,17 +48,35 @@ Command: ```kaggle datasets download -d <owner/slug> -p ./data```
 - **Validate:** Recheck schema/stats and scan for any remaining inconsistencies
 
 **7. Feature Engineering**
+- **Derive totals:** Compute a ```total``` column (```unit_price * quantity```) per transaction
+- **Purpose:** Standardizes a key measure for cleaner joins and aggregations later
 
 **8. Load Data into PostgreSQL**
+- **Connect to PostgreSQL:** Use SQLAlchemy (postgresql+psycopg2) and load the cleaned DataFrame
+- **Create tables:** Write data with df.to_sql(...) and add indexes as needed
+- **Verify:** Run row counts and spot checks to confirm accurate loads
 
 **9. SQL Analysis:Queries and Business Problem Solving**
+- **Business Questions Addressed:**
+  - Revenue trends across branches and categories
+  - Top-selling product categories
+  - Sales performance by time, city, and payment method
+  - Peak sales periods and customer behavior patterns
+  - Profit margin analysis by branch and category
+- **Notes:** Keep a simple log (e.g., reports/queries.md) with each query’s goal, method, final SQL, and results
+
+# Project Steps
+
+**Future Work:**
+- Integrate a Tableau dashboard for interactive visualization
+- Incorporate supplementary datasets to deepen analysis
+- Automate the end-to-end pipeline for scheduled/real-time refreshes
 
 
+# Acknowledgments
 
-
-
-
-
+- **Data source:** Kaggle — Walmart Sales dataset (downloaded via Kaggle API)
+- **Inspiration:** Industry case studies from Walmart on optimizing sales and logistics
 
 
 
